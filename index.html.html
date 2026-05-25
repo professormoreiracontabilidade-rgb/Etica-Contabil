@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apostila de Elite - NBC PG 01 - Prof. Moreira</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&family=Montserrat:ital,wght@1,900&display=swap" rel="stylesheet">
+    <style>
+        @page { size: A4; margin: 0; }
+        
+        :root {
+            --azul-eletrico: #0047FF;
+        }
+
+        body {
+            background-color: #d1d5db;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            padding: 15mm 15mm 45mm 15mm; /* 45mm de respiro inferior para o rodapé */
+            margin: 30px auto;
+            background: white;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+            page-break-after: always;
+            overflow: hidden;
+        }
+
+        @media print {
+            body { background: none; padding: 0; }
+            .page { margin: 0; box-shadow: none; }
+            .no-print { display: none; }
+        }
+
+        .main-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 4rem;
+            line-height: 0.9;
+            text-decoration: underline double var(--azul-eletrico);
+            text-shadow: 2px 2px 0px #e5e7eb;
+        }
+
+        .section-topic {
+            border-left: 15px solid #000;
+            padding: 15px 25px;
+            background: #f3f4f6;
+            margin: 2rem 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .highlight-box {
+            position: relative;
+            border-radius: 2rem;
+            padding: 1.5rem;
+            margin-bottom: 1.2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            break-inside: avoid;
+            border: 2px solid rgba(0,0,0,0.05);
+        }
+
+        .emoji-explosion {
+            position: absolute;
+            top: -18px;
+            right: 20px;
+            font-size: 1.8rem;
+            background: white;
+            padding: 5px 15px;
+            border-radius: 50px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            z-index: 20;
+            border: 1px solid #eee;
+        }
+
+        .forbidden-badge {
+            display: inline-block;
+            background: #000;
+            color: #fff;
+            padding: 2px 12px;
+            border-radius: 8px;
+            font-weight: 900;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .footer-fixed {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 35mm;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(to top, #ffffff 70%, transparent);
+            z-index: 100;
+        }
+
+        .footer-text {
+            border-top: 2px solid #000;
+            width: 80%;
+            padding-top: 10px;
+            text-align: center;
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 11px;
+            color: #1f2937;
+            letter-spacing: 1px;
+        }
+
+        .btn-pdf {
+            position: fixed;
+            top: 25px;
+            right: 25px;
+            z-index: 9999;
+            background: var(--azul-eletrico);
+            color: white;
+            padding: 20px 35px;
+            border-radius: 100px;
+            font-weight: 900;
+            box-shadow: 0 15px 30px rgba(0, 71, 255, 0.4);
+            cursor: pointer;
+            border: 4px solid white;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        /* Colors */
+        .bg-baby-blue { background-color: #E3F2FD; }
+        .bg-mint-green { background-color: #E8F5E9; }
+        .bg-pale-pink { background-color: #FCE4EC; }
+        .bg-soft-amber { background-color: #FFF8E1; }
+        .bg-lavender { background-color: #F3E5F5; }
+        .bg-cream { background-color: #FFFBF0; }
+
+    </style>
+</head>
+<body>
+
+    <button class="btn-pdf no-print" onclick="window.print()">
+        📥 GERAR PDF AGORA
+    </button>
+
+    <!-- PÁGINA 1: CAPA -->
+    <div class="page flex flex-col items-center justify-center text-center">
+        <div class="mb-12">
+            <div class="h-2 w-32 bg-blue-600 mx-auto mb-8"></div>
+            <h2 class="text-3xl font-black uppercase tracking-tighter text-gray-800 mb-2">Curso de Contabilidade</h2>
+            <h1 class="text-6xl font-black uppercase italic text-blue-600 leading-none mb-10">Professor Moreira</h1>
+        </div>
+
+        <div class="border-y-8 border-black py-10 w-full mb-12">
+            <h3 class="text-5xl font-black uppercase italic leading-tight">
+                CÓDIGO DE ÉTICA DO <br> PROFISSIONAL CONTADOR
+            </h3>
+            <p class="mt-4 text-2xl font-bold text-gray-600">NORMA BRASILEIRA DE CONTABILIDADE (NBC PG 01)</p>
+        </div>
+
+        <div class="mt-20">
+            <div class="inline-block bg-black text-white px-8 py-4 rounded-full font-black text-2xl shadow-2xl transform rotate-1">
+                WhatsApp - (61) 985323574 📱✅
+            </div>
+        </div>
+    </div>
+
+    <!-- PÁGINA 2: OBJETIVO -->
+    <div class="page">
+        <header class="mb-6 mt-6">
+            <div class="flex items-center gap-4 mb-2">
+                <div class="h-1 w-10 bg-blue-600"></div>
+                <p class="text-black font-black uppercase text-xs">NBC PG 01 - ÉTICA</p>
+            </div>
+        </header>
+
+        <div class="section-topic">
+            <span class="text-4xl">🎯</span>
+            <h2 class="text-4xl font-black italic uppercase">Objetivo</h2>
+        </div>
+
+        <div class="highlight-box bg-cream border-orange-200">
+            <div class="emoji-explosion">⚖️🏛️🕵️‍♂️</div>
+            <p class="text-2xl leading-tight font-semibold text-gray-900">
+                <span class="text-4xl text-orange-500 mr-2">1.</span> Esta Norma tem por objetivo fixar a conduta do contador, quando no exercício da sua atividade e nos assuntos relacionados à profissão e à classe.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+            <div class="highlight-box bg-baby-blue">
+                <div class="emoji-explosion">📜✅✨</div>
+                <p class="text-lg font-medium"><strong>2.</strong> A conduta ética do contador deve seguir os preceitos estabelecidos nesta Norma, nas demais Normas Brasileiras de Contabilidade e na legislação vigente.</p>
+            </div>
+            <div class="highlight-box bg-mint-green">
+                <div class="emoji-explosion">🔧💼📑</div>
+                <p class="text-lg font-medium"><strong>3.</strong> Este Código de Ética Profissional do Contador se aplica também ao técnico em contabilidade, no exercício de suas prerrogativas profissionais.</p>
+            </div>
+        </div>
+
+        <div class="section-topic">
+            <span class="text-4xl">🚀</span>
+            <h2 class="text-4xl font-black italic uppercase">Deveres</h2>
+        </div>
+
+        <div class="highlight-box bg-soft-amber border-amber-200">
+            <div class="emoji-explosion">💎🦁🛡️🔥</div>
+            <h3 class="text-2xl font-black mb-4 uppercase italic text-amber-900">4. São deveres do contador:</h3>
+            <p class="text-lg leading-snug italic"><strong>(a)</strong> exercer a profissão com zelo, diligência, honestidade e capacidade técnica, observando as Normas Brasileiras de Contabilidade e a legislação vigente, resguardando o interesse público, os interesses de seus clientes ou empregadores, sem prejuízo da dignidade e independência profissionais;</p>
+        </div>
+
+        <footer class="footer-fixed"><div class="footer-text">Curso de Contabilidade Professor Moreira – O caminho para a aprovação</div></footer>
+    </div>
+
+    <!-- PÁGINA 3: DEVERES (CONT.) -->
+    <div class="page">
+        <div class="space-y-2">
+            <div class="highlight-box bg-pale-pink">
+                <div class="emoji-explosion">❌🎓🧐</div>
+                <p><strong>(b)</strong> recusar sua indicação em trabalho quando reconheça não se achar capacitado para a especialização requerida;</p>
+            </div>
+            <div class="highlight-box bg-lavender">
+                <div class="emoji-explosion">🤫🔏🤐</div>
+                <p><strong>(c)</strong> guardar sigilo sobre o que souber em razão do exercício profissional, inclusive no âmbito do serviço público, ressalvados os casos previstos em lei ou quando solicitado por autoridades competentes, entre estas os Conselhos Federal e Regionais de Contabilidade;</p>
+            </div>
+            <div class="highlight-box bg-baby-blue">
+                <div class="emoji-explosion">📢⚠️📑</div>
+                <p><strong>(d)</strong> informar a quem de direito, obrigatoriamente, fatos que conheça e que considere em condições de exercer efeito sobre o objeto do trabalho, respeitado o disposto na alínea (c) deste item;</p>
+            </div>
+            <div class="highlight-box bg-mint-green">
+                <div class="emoji-explosion">🛡️🔄🧠</div>
+                <p><strong>(e)</strong> aplicar as salvaguardas previstas pela profissão, pela legislação, por regulamento ou por organização empregadora toda vez que identificar ou for alertado da existência de ameaças mencionadas nas normas de exercício da profissão contábil, observando o seguinte:</p>
+                <div class="pl-6 space-y-1 mt-2 text-sm italic font-bold text-green-900">
+                    <p>(i) tomar medidas razoáveis para evitar ou minimizar conflito de interesses; e</p>
+                    <p>(ii) quando não puder eliminar ou minimizar a nível aceitável o conflito de interesses, adotar medidas de modo a não perder a independência profissional;</p>
+                </div>
+            </div>
+        </div>
+        <footer class="footer-fixed"><div class="footer-text">Curso de Contabilidade Professor Moreira – O caminho para a aprovação</div></footer>
+    </div>
+
+    <!-- PÁGINA 4: DEVERES (CONT.) -->
+    <div class="page">
+        <div class="grid grid-cols-1 gap-2">
+            <div class="highlight-box bg-soft-amber">
+                <div class="emoji-explosion">⚖️🤐👤</div>
+                <p><strong>(f)</strong> abster-se de expressar argumentos ou dar conhecimento de sua convicção pessoal sobre os direitos de quaisquer das partes interessadas, ou da justiça da causa em que estiver servindo, mantendo seu trabalho no âmbito técnico e limitando-se ao seu alcance;</p>
+            </div>
+            <div class="highlight-box bg-cream">
+                <div class="emoji-explosion">👔🔍📏</div>
+                <p><strong>(g)</strong> abster-se de interpretações tendenciosas sobre a matéria que constitui objeto do trabalho, mantendo a independência profissional;</p>
+            </div>
+            <div class="highlight-box bg-lavender">
+                <div class="emoji-explosion">🚫🗣️💼</div>
+                <p><strong>(h)</strong> zelar pela sua competência exclusiva na orientation técnica dos serviços a seu cargo, abstendo-se de emitir qualquer opinião em trabalho de outro contador, sem que tenha sido contratado para tal;</p>
+            </div>
+            <div class="highlight-box bg-pale-pink">
+                <div class="emoji-explosion">📧🚩📉</div>
+                <p><strong>(i)</strong> comunicar, desde logo, ao cliente ou ao empregador, em documento reservado, eventual circunstância adversa que possa gerar riscos e ameaças ou influir na decisão daqueles que são usuários dos relatórios e serviços contábeis como um todo;</p>
+            </div>
+        </div>
+        <footer class="footer-fixed"><div class="footer-text">Curso de Contabilidade Professor Moreira – O caminho para a aprovação</div></footer>
+    </div>
+
+    <!-- PÁGINA 5: DEVERES (FINAL) -->
+    <div class="page">
+        <div class="space-y-2">
+            <div class="grid grid-cols-2 gap-4">
+                <div class="highlight-box bg-baby-blue h-full">
+                    <div class="emoji-explosion">📚🧐🔎</div>
+                    <p class="text-sm"><strong>(j)</strong> despender os esforços necessários e se munir de documentos e informações para inteirar-se de todas as circunstâncias, antes de emitir opinião sobre qualquer caso;</p>
+                </div>
+                <div class="highlight-box bg-mint-green h-full">
+                    <div class="emoji-explosion">👋📝❌</div>
+                    <p class="text-sm"><strong>(k)</strong> renunciar às funções que exerce, logo que se positive falta de confiança por parte do cliente ou empregador e vice-versa, a quem deve notificar por escrito, respeitando os prazos estabelecidos em contrato;</p>
+                </div>
+            </div>
+            <div class="highlight-box bg-lavender">
+                <div class="emoji-explosion">🤝📤🔄</div>
+                <p><strong>(l)</strong> quando substituído em suas funções, informar ao substituto sobre fatos que devam chegar ao conhecimento desse, a fim de contribuir para o bom desempenho das funções a serem exercidas;</p>
+            </div>
+            <div class="highlight-box bg-cream">
+                <div class="emoji-explosion">🛑🚫⌛</div>
+                <p><strong>(m)</strong> manifestar, imediatamente, em qualquer tempo, a existência de impedimento para o exercício da profissão;</p>
+            </div>
+            <div class="highlight-box bg-soft-amber">
+                <div class="emoji-explosion">✊💼🎓</div>
+                <p><strong>(n)</strong> ser solidário com os movimentos de defesa da dignidade profissional, seja defendendo remuneração condigna, seja zelando por condições de trabalho compatíveis com o exercício ético-profissional da Contabilidade e seu aprimoramento técnico;</p>
+            </div>
+        </div>
+        <footer class="footer-fixed"><div class="footer-text">Curso de Contabilidade Professor Moreira – O caminho para a aprovação</div></footer>
+    </div>
+
+    <!-- PÁGINA 6: DEVERES E REGISTRO -->
+    <div class="page">
+        <div class="highlight-box bg-pale-pink">
+            <div class="emoji-explosion">📖✍️🎓</div>
+            <p><strong>(o)</strong> cumprir os Programas de Educação Profissional Continuada de acordo com o estabelecido pelo Conselho Federal de Contabilidade (CFC);</p>
+        </div>
+        <div class="highlight-box bg-baby-blue">
+            <div class="emoji-explosion">📍📧📞</div>
+            <p><strong>(p)</strong> comunicar imediatamente ao CRC a mudança de seu domicílio ou endereço, inclusive eletrônico, e da organização contábil de sua responsabilidade, bem como informar a ocorrência de outros fatos necessários ao controle e fiscalização profissional;</p>
+        </div>
+        <div class="highlight-box bg-mint-green">
+            <div class="emoji-explosion">👮‍♂️📋📑</div>
+            <p><strong>(q)</strong> atender à fiscalização do exercício profissional e disponibilizar papéis de trabalho, relatórios e outros documentos solicitados; e</p>
+        </div>
+        <div class="highlight-box bg-lavender">
+            <div class="emoji-explosion">🖋️🪪🏷️</div>
+            <p><strong>(r)</strong> informar o número de registro, o nome e a categoria profissional após a assinatura em trabalho de contabilidade, propostas comerciais, contratos de prestação de serviços e em todo e qualquer anúncio, placas, cartões comerciais e outros.</p>
+        </div>
+        <footer class="footer-fixed"><div class="footer-text">Curso de Contabilidade Professor Moreira – O caminho para a aprovação</div></footer>
+    </div>
+
+    <!-- PÁGINA 7: VEDAÇÕES (FRAGIMENTADO) -->
+    <div class="page">
+        <div class="section-topic">
+            <span class="text-4xl">🛑</span>
+            <h2 class="text-4xl font-black italic uppercase">Vedações</h2>
+        </div>
+        <h3 class="text-xl font-black italic mb-6 ml-4 text-red-600">5. No desempenho de suas funções, é vedado ao contador:</h3>
+
+        <div class="grid grid-cols-2 gap-4">
+            <div class="highlight-box bg-pale-pink border-red-300">
+                <div class="forbidden-badge">🚫 Proibido</div>
+                <div class="emoji-explosion">📉👎</div>
+                <p class="text-xs"><strong>(a)</strong> assumir, direta ou indiretamente, serviços de qualquer natureza, com prejuízo moral ou desprestígio para a classe;</p>
+            </div>
+            <div class="highlight-box bg-soft-amber border-red-300">
+                <div class="forbidden-badge">🚫 Proibido</div>
+                <div class="emoji-explosion">💰❌😈</div>
+                <p class="text-xs"><strong>(b)</strong> auferir qualquer provento em função do exercício profissional que não decorra exclusivamente de sua prática lícita;</p>
+            </div>
+            <div class="highlight-box bg-mint-green border-red-300">
+                <div class="forbidden-badge">🚫 Proibido</div>
+                <div class="emoji-explosion">✍️🛑👤</div>
+                <p class="text-xs"><strong>(c)</strong> assinar documentos ou peças contábeis elaborados por outrem alheio à sua orientação, supervisão ou revisão;</p>
+            </div>
+            <div class="highlight-box bg-baby-blue border-red-300">
+                <div class="forbidden-badge">🚫 Proibido</div>
+                <div class="emoji-explosion">⛔🚷⚖️</div>
+                <p class="text-xs"><strong>(d)</strong> exercer a profissão, quando impedido, inclusive quando for procurador de seu cliente, mesmo que com poderes específicos...</p>
+            </div>
+        </div>
+
+        <div class="highlight-box bg-lavender border-red-300 mt-2">
+            <div class="forbidden-badge">🚫 Proibido</div>
+            <div class="emoji-explosion">🚪🔓👨‍🔧</div>
+            <p class="text-sm"><strong>(e)</strong> facilitar, por qualquer meio, o exercício da profissão aos não habilitados ou impedidos;</p>
+        </div>
+
+        <footer class="footer-fixed"><div class="footer-text">Curso de Contabilidade Professor Moreira – O caminho para a aprovação</div></footer>
+    </div>
+
+    <!-- PÁGINA 8: VEDAÇÕES (PARTE 2) -->
+    <div class="page">
+        <div class="grid grid-cols-1 gap-2">
+            <div class="highlight-box bg-cream border-red-300">
+                <div class="forbidden-badge">🚫 Proibido</div>
+                <div class="emoji-explosion">🏢🚫📑</div>
+                <p class="text-sm"><strong>(f)</strong> explorar serviços contábeis, por si ou em organização contábil, sem registro regular em Conselho Regional de Contabilidade;</p>
+            </div>
+            <div class="highlight-box bg-pale-pink border-red-300">
+                <div class="forbidden-badge">🚫 Proibido</div>
+                <div class="emoji-explosion">🕵️‍♂️⚖️💣</div>
+                <p class="text-sm"><strong>(g)</strong> concorrer, no exercício da profissão, para a realização de ato contrário à legislação ou destinado a fraudá-la, quando da execução dos serviços para os quais foi expressamente contratado;</p>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="highlight-box bg-soft-amber border-red-300">
+                    <div class="forbidden-badge">🚫 Proibido</div>
+                    <div class="emoji-explosion">💸😈</div>
+                    <p class="text-xs"><strong>(h)</strong> solicitar ou receber de cliente ou empregador qualquer vantagem para aplicação ilícita;</p>
+                </div>
+                <div class="highlight-box bg-mint-green border-red-300">
+                    <div class="forbidden-badge">🚫 Proibido</div>
+                    <div class="emoji-explosion">🤕📉❌</div>
+                    <p class="text-xs"><strong>(i)</strong> prejudicar, culposa ou dolosamente, interesse confiado a sua responsabilidade profissional;</p>
+                </div>
+            </div>
+            <div class="highlight-box bg-lavender border-red-300">
+                <div class="forbidden-badge">🚫 Proibido</div>
+                <div class="emoji-explosion">🧾🧮❌</div>
+                <p class="text-sm"><strong>(j)</strong> recusar-se a prestar contas de quantias que lhe forem comprovadamente confiadas;</p>
+            </div>
+        </div>
+        <footer class="footer-fixed"><div class="footer-text">Curso de Contabilidade Professor Moreira – O caminho para a aprovação</div></footer>
+    </div>
+
+    <!-- PÁGINA 9: VEDAÇÕES (CRÍTICO) -->
+    <div class="page">
+        <div class="highlight-box bg-cream border-red-400">
+            <div class="forbidden-badge">🚫 Proibido</div>
+            <div class="emoji-explosion">🧤💎🏃‍♂️</div>
+            <p><strong>(k)</strong> apropriar-se indevidamente de valores, bens e qualquer tipo de crédito confiados a sua guarda;</p>
+        </div>
+        <div class="highlight-box bg-baby-blue border-red-400">
+            <div class="forbidden-badge">🚫 Proibido</div>
+            <div class="emoji-explosion">📚🔒⛓️</div>
+            <p class="text-sm"><strong>(l)</strong> reter abusivamente livros, papéis ou documentos, inclusive arquivos eletrônicos, comprovadamente confiados à sua guarda, inclusive com a finalidade de forçar o contratante a cumprir suas obrigações contratuais com o profissional da contabilidade, ou pelo não atendimento de notificação do contratante;</p>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+            <div class="highlight-box bg-pale-pink border-red-300">
+                <div class="forbidden-badge">🚫 Proibido</div>
+                <div class="emoji-explosion">🧭🛑</div>
+                <p class="text-xs"><strong>(m)</strong> orientar o cliente ou o empregador contra Normas Brasileiras de Contabilidade e contra disposições expressas em lei;</p>
+            </div>
+            <div class="highlight-box bg-soft-amber border-red-300">
+                <div class="forbidden-badge">🚫 Proibido</div>
+                <div class="emoji-explosion">🏴‍☠️🏢</div>
+                <p class="text-xs"><strong>(n)</strong> exercer atividade ou ligar o seu nome a empreendimentos com finalidades ilícitas;</p>
+            </div>
+        </div>
+        <div class="highlight-box bg-lavender border-red-300">
+            <div class="forbidden-badge">🚫 Proibido</div>
+            <div class="emoji-explosion">🗣️🤐❌</div>
+            <p><strong>(o)</strong> emitir referência que identifique o cliente ou o empregador, com quebra de sigilo profissional, em publicação em que haja menção a trabalho que tenha realizado ou orientado, salvo quando autorizado por eles;</p>
+        </div>
+        <footer class="footer-fixed"><div class="footer-text">Curso de Contabilidade Professor Moreira – O caminho para a aprovação</div></footer>
+    </div>
+
+    <!-- PÁGINA 10: VEDAÇÕES (FINAL) -->
+    <div class="page">
+        <div class="highlight-box bg-mint-green border-red-300">
+            <div class="forbidden-badge">🚫 Proibido</div>
+            <div class="emoji-explosion">🤡🎭🤥</div>
+            <p class="text-sm"><strong>(p)</strong> iludir ou tentar iludir a boa-fé de cliente, empregador ou de terceiros, alterando ou deturpando o exato teor de documentos, inclusive eletrônicos, e fornecer falsas informações ou elaborar peças contábeis inidôneas;</p>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+            <div class="highlight-box bg-baby-blue border-red-300">
+                <div class="forbidden-badge">🚫 Proibido</div>
+                <div class="emoji-explosion">⏳🛑🏛️</div>
+                <p class="text-[10px]"><strong>(q)</strong> não atender, no prazo estabelecido, à notificação dos Conselhos Federal e Regionais de Contabilidade;</p>
+            </div>
+            <div class="highlight-box bg-cream border-red-300">
+                <div class="forbidden-badge">🚫 Proibido</div>
+                <div class="emoji-explosion">🪪❌🎭</div>
+                <p class="text-[10px]"><strong>(r)</strong> intitular-se com categoria profissional que não possua na profissão contábil;</p>
+            </div>
+            <div class="highlight-box bg-pale-pink border-red-300">
+                <div class="forbidden-badge">🚫 Proibido</div>
+                <div class="emoji-explosion">🛠️⚠️📉</div>
+                <p class="text-[10px]"><strong>(s)</strong> executar trabalhos técnicos contábeis sem observância das Normas Brasileiras de Contabilidade editadas pelo CFC;</p>
+            </div>
+            <div class="highlight-box bg-soft-amber border-red-300">
+                <div class="forbidden-badge">🚫 Proibido</div>
+                <div class="emoji-explosion">🕊️🔗🛑</div>
+                <p class="text-[10px]"><strong>(t)</strong> renunciar à liberdade profissional, devendo evitar quaisquer restrições ou imposições que possam prejudicar a eficácia e a correção de seu trabalho;</p>
+            </div>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+            <div class="highlight-box bg-lavender border-red-300">
+                <div class="forbidden-badge">🚫 Proibido</div>
+                <div class="emoji-explosion">✍️👤❌</div>
+                <p class="text-[10px]"><strong>(u)</strong> publicar ou distribuir, em seu nome, trabalho científico ou técnico do qual não tenha participado;</p>
+            </div>
+            <div class="highlight-box bg-mint-green border-red-300">
+                <div class="forbidden-badge">🚫 Proibido</div>
+                <div class="emoji-explosion">🤫🤝💰</div>
+                <p class="text-[10px]"><strong>(v)</strong> revelar negociação confidenciada pelo cliente ou empregador para acordo ou transação que, comprovadamente, tenha tido conhecimento...</p>
+            </div>
+        </div>
+        <div class="highlight-box bg-red-100 border-red-600">
+            <div class="forbidden-badge !bg-red-700">CRÍTICO 🚨</div>
+            <div class="emoji-explosion">🧨🚑⚖️🔥</div>
+            <p class="font-bold"><strong>(w)</strong> exercer a profissão contábil com negligência, imperícia ou imprudência, tendo violado direitos ou causado prejuízos a outrem.</p>
+        </div>
+        <footer class="footer-fixed"><div class="footer-text">Curso de Contabilidade Professor Moreira – O caminho para a aprovação</div></footer>
+    </div>
+
+    <!-- PÁGINA 11: PERMISSIBILIDADES -->
+    <div class="page">
+        <div class="section-topic">
+            <span class="text-4xl">🔓</span>
+            <h2 class="text-4xl font-black italic uppercase">Permissibilidades</h2>
+        </div>
+        <h3 class="text-2xl font-black italic mb-6 ml-4">6. O contador pode:</h3>
+        <div class="grid grid-cols-1 gap-2">
+            <div class="highlight-box bg-baby-blue">
+                <div class="emoji-explosion">📘✍️🎓</div>
+                <p><strong>(a)</strong> publicar trabalho, científico ou técnico, assinado e sob sua responsabilidade;</p>
+            </div>
+            <div class="highlight-box bg-mint-green">
+                <div class="emoji-explosion">📝🤝📜</div>
+                <p><strong>(b)</strong> transferir o contrato de serviços a seu cargo a outro profissional, com a anuência do cliente, sempre por escrito;</p>
+            </div>
+            <div class="highlight-box bg-pale-pink">
+                <div class="emoji-explosion">🍰🔄💼</div>
+                <p><strong>(c)</strong> transferir, parcialmente, a execução dos serviços a seu cargo a outro profissional, mantendo sempre como sua a responsabilidade técnica;</p>
+            </div>
+            <div class="highlight-box bg-lavender">
+                <div class="emoji-explosion">📢✨🌟</div>
+                <p><strong>(d)</strong> indicar, em qualquer modalidade ou veículo de comunicação, títulos, especializações, serviços oferecidos, trabalhos realizados e a relação de clientes, esta quando autorizada por estes.</p>
+            </div>
+        </div>
+        <footer class="footer-fixed"><div class="footer-text">Curso de Contabilidade Professor Moreira – O caminho para a aprovação</div></footer>
+    </div>
+
+    <!-- PÁGINA 12: VALOR E PUBLICIDADE -->
+    <div class="page">
+        <div class="section-topic">
+            <span class="text-4xl">💰</span>
+            <h2 class="text-4xl font-black italic uppercase">Valor e Publicidade</h2>
+        </div>
+        <div class="highlight-box bg-soft-amber border-amber-300">
+            <div class="emoji-explosion">📊📉💵💎</div>
+            <p class="font-bold mb-4">7. O contador deve estabelecer, por escrito, o valor dos serviços em suas propostas de prestação de serviços profissionais, considerando os seguintes elementos:</p>
+            <div class="grid grid-cols-2 gap-2 text-xs">
+                <div class="bg-white/50 p-2 rounded-lg italic">(a) relevância, vulto, complexidade, custos e dificuldade;</div>
+                <div class="bg-white/50 p-2 rounded-lg italic">(b) tempo consumido;</div>
+                <div class="bg-white/50 p-2 rounded-lg italic">(c) possibilidade de impedimento;</div>
+                <div class="bg-white/50 p-2 rounded-lg italic">(d) resultado lícito favorável;</div>
+                <div class="bg-white/50 p-2 rounded-lg italic">(e) cliente eventual, habitual ou permanente;</div>
+                <div class="bg-white/50 p-2 rounded-lg italic">(f) local da prestação.</div>
+            </div>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+            <div class="highlight-box bg-mint-green">
+                <div class="emoji-explosion">✍️📄📏</div>
+                <p class="text-xs"><strong>8.</strong> Nas propostas devem constar, explicitamente, todos os serviços cobrados individualmente, o valor, a periodicidade e o reajuste.</p>
+            </div>
+            <div class="highlight-box bg-lavender">
+                <div class="emoji-explosion">🤝📜🖋️</div>
+                <p class="text-xs"><strong>9.</strong> Aceita a proposta, deve ser celebrado, por escrito, contrato de prestação de serviços, respeitando legislação do CFC.</p>
+            </div>
+        </div>
+        <div class="highlight-box bg-cream">
+            <div class="emoji-explosion">📢✨🧐</div>
+            <p class="text-xs"><strong>10.</strong> Caso parte dos serviços tenha que ser executada pelo tomador, isso deve estar explicitado na proposta e no contrato.</p>
+            <p class="text-xs mt-2 font-bold">11. A publicidade deve primar pela natureza técnica e científica, sendo vedada a mercantilização.</p>
+        </div>
+        <footer class="footer-fixed"><div class="footer-text">Curso de Contabilidade Professor Moreira – O caminho para a aprovação</div></footer>
+    </div>
+
+    <!-- PÁGINA 13: PUBLICIDADE E CLASSE -->
+    <div class="page">
+        <div class="highlight-box bg-baby-blue">
+            <div class="emoji-explosion">🤐🗣️📉</div>
+            <p class="text-sm"><strong>12.</strong> A publicidade deve ter caráter meramente informativo, ser moderada e discreta.</p>
+            <p class="text-sm mt-2"><strong>13.</strong> Cabe ao profissional manter em seu poder os dados fáticos, técnicos e científicos que dão sustentação à mensagem publicitária.</p>
+            <p class="text-sm mt-2"><strong>14.</strong> Observar o Código de Defesa do Consumidor e a Lei de Propriedade Industrial (concorrência desleal).</p>
+        </div>
+        <div class="highlight-box bg-pale-pink border-red-400">
+            <div class="forbidden-badge">🚫 Vedado</div>
+            <div class="emoji-explosion">🙊📉👎</div>
+            <p class="font-bold text-sm">15. É vedado denegrir a reputação da classe:</p>
+            <p class="text-xs italic mt-1">(a) afirmações desproporcionais; (b) comparações depreciativas; (c) ações comerciais que iludam a boa-fé.</p>
+        </div>
+        <div class="section-topic">
+            <span class="text-4xl">🤝</span>
+            <h2 class="text-4xl font-black italic uppercase">Colegas e Classe</h2>
+        </div>
+        <div class="highlight-box bg-lavender">
+            <div class="emoji-explosion">💞🤝🏆🌟</div>
+            <p class="text-sm"><strong>16.</strong> Conduta pautada em consideração, respeito, apreço, solidariedade e harmonia.</p>
+            <p class="text-sm mt-2"><strong>17.</strong> Solidariedade não induz nem justifica conivência com erro ou atos infringentes.</p>
+        </div>
+        <footer class="footer-fixed"><div class="footer-text">Curso de Contabilidade Professor Moreira – O caminho para a aprovação</div></footer>
+    </div>
+
+    <!-- PÁGINA 14: COLEGAS E PENALIDADES -->
+    <div class="page">
+        <div class="highlight-box bg-mint-green">
+            <div class="emoji-explosion">👨‍💻🤫🤝</div>
+            <p class="font-black italic text-green-900 mb-2 underline">18. Regras em relação aos colegas:</p>
+            <p class="text-xs italic">(a) abster-se de referências prejudiciais; (b) não substituir colega que desistiu para preservar a dignidade; (c) jamais se apropriar de trabalhos alheios; (d) evitar desentendimentos com substitutos.</p>
+        </div>
+        <div class="highlight-box bg-soft-amber">
+            <div class="emoji-explosion">🏛️🏅📈🗳️</div>
+            <p class="font-black italic text-amber-900 mb-2 underline">19. Regras em relação à classe:</p>
+            <div class="grid grid-cols-2 gap-2 text-[10px]">
+                <p>• Cooperação moral/material;</p>
+                <p>• Zelar pelo cumprimento da Norma;</p>
+                <p>• Aceitar cargos diretivos;</p>
+                <p>• Acatar decisões da classe;</p>
+                <p>• Não depreciar a classe;</p>
+                <p>• Informar irregularidades;</p>
+                <p>• Não usar posição para benefício próprio.</p>
+            </div>
+        </div>
+        <div class="section-topic">
+            <span class="text-4xl">⚖️</span>
+            <h2 class="text-4xl font-black italic uppercase">Penalidades</h2>
+        </div>
+        <div class="highlight-box bg-red-50 border-4 border-red-600">
+            <div class="emoji-explosion">🚨🔨⚖️🔥</div>
+            <p class="text-md font-black uppercase text-red-700">20. As Sanções Éticas (segundo a gravidade):</p>
+            <div class="flex justify-around mt-4">
+                <div class="text-center font-black text-xs">🤫<br>ADVERTÊNCIA RESERVADA</div>
+                <div class="text-center font-black text-xs">🤐<br>CENSURA RESERVADA</div>
+                <div class="text-center font-black text-xs">📢<br>CENSURA PÚBLICA</div>
+            </div>
+        </div>
+        <footer class="footer-fixed"><div class="footer-text">Curso de Contabilidade Professor Moreira – O caminho para a aprovação</div></footer>
+    </div>
+
+    <!-- PÁGINA 15: AGRAVANTES E FINAIS -->
+    <div class="page">
+        <div class="grid grid-cols-2 gap-4">
+            <div class="highlight-box bg-baby-blue">
+                <div class="emoji-explosion">🛡️✅📉</div>
+                <h4 class="font-black italic">21. Atenuantes</h4>
+                <p class="text-[10px] mt-2 italic">(a) defesa de prerrogativa; (b) ausência de punição anterior; (c) serviços relevantes; (d) salvaguardas.</p>
+            </div>
+            <div class="highlight-box bg-pale-pink">
+                <div class="emoji-explosion">📈❌🚨</div>
+                <h4 class="font-black italic">22. Agravantes</h4>
+                <p class="text-[10px] mt-2 italic">(a) mácula pública à imagem; (b) punição anterior transitada em julgado; (c) gravidade da infração.</p>
+            </div>
+        </div>
+        <div class="highlight-box bg-lavender">
+            <div class="emoji-explosion">🛡️🗣️🏛️</div>
+            <p class="text-sm"><strong>23.</strong> O contador pode requerer desagravo público ao CRC, quando atingido pública e injustamente.</p>
+        </div>
+        <div class="section-topic">
+            <span class="text-4xl">📅</span>
+            <h2 class="text-4xl font-black italic uppercase">Gerais</h2>
+        </div>
+        <div class="highlight-box bg-cream border-2 border-orange-400">
+            <div class="emoji-explosion">📜📅🇧🇷✨</div>
+            <p class="text-xs"><strong>24.</strong> Normas profissionais complementam esta Norma.</p>
+            <p class="text-xs mt-1"><strong>25.</strong> Conflito de normas? Prevalece esta!</p>
+            <div class="bg-black text-white p-4 rounded-2xl mt-4">
+                <p class="text-[10px] leading-tight">
+                    <strong>26.</strong> Entra em vigor em 1º/06/2019 e revoga as Resoluções CFC 803/96, 819/97, 942/02, 950/02 e 1.307/10.
+                </p>
+                <p class="mt-4 text-xl font-black italic text-center underline decoration-blue-600">Brasília, 7 de fevereiro de 2019</p>
+            </div>
+        </div>
+        <div class="mt-auto mb-10 text-center">
+            <div class="inline-block p-10 border-[10px] border-blue-600 rounded-[3rem] bg-white shadow-2xl transform hover:scale-105 transition-all">
+                <h4 class="font-black text-4xl italic uppercase mb-2">🎓 VOCÊ É DE ELITE!</h4>
+                <p class="text-xl text-gray-700 font-bold">Domine a Ética. Domine o Exame. 🚀🏆</p>
+            </div>
+        </div>
+        <footer class="footer-fixed"><div class="footer-text">Curso de Contabilidade Professor Moreira – O caminho para a aprovação</div></footer>
+    </div>
+
+</body>
+</html>
